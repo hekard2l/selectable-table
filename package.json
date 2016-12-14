@@ -1,0 +1,11 @@
+{
+  "name": "selectable-table",
+  "version": "1.0.0",
+  "description": "BrightspaceUI table with multiple selection",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hekar Khani",
+  "license": "Apache-2.0"
+}

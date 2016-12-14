@@ -1,0 +1,60 @@
+<link rel="import" href="../bower_components/d2l-table/d2l-table.html">
+
+<dom-module id="mr-selectable-table">
+  <template>
+    <style>
+    </style>
+    <table is="d2l-table">
+      <thead>
+        <tr>
+          <content></content>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>row 1 column 1</td>
+          <td>row 1 column 2</td>
+        </tr>
+        <tr>
+          <td>row 2 column 1</td>
+          <td>row 2 column 2</td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+  <script>
+    Polymer({
+      is: 'mr-selectable-table',
+
+      properties: {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged',
+        },
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)',
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'view1';
+
+        if (!this.$.drawer.persistent) {
+          this.$.drawer.close();
+        }
+      },
+
+      _pageChanged: function(page) {
+        // Load page import on demand. Show 404 page if fails
+        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+      },
+
+      _showPage404: function() {
+        this.page = 'view404';
+      },
+    });
+  </script>
+</dom-module>

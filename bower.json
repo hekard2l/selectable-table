@@ -1,0 +1,21 @@
+{
+  "name": "selectable-table",
+  "description": "BrightspaceUI table with multiple selection",
+  "main": "index.html",
+  "authors": [
+    "Hekar Khani"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d2l-table": "^0.4.2"
+  }
+}
